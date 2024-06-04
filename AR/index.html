@@ -2,12 +2,8 @@
 <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1.3.0/dist/aframe-master.min.js"></script>
 <script src="./aframe-ar.js"></script>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AR</title>
-</head>
-<body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
+<body style='margin : 0px; overflow: hidden; font-family: Monospace;'><div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 1;'>
+</div>
     <a-scene embedded arjs='sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 3x3;' renderer='precision: high;'>
 
 		<a-marker preset='custom' type='pattern' url='https://raw.githack.com/Thorsten-Trinkaus/Test/1cb13e85daf60c45f00f3747781d1db62eb0ebf2/qr-code-as-marker%20(2).patt'>

@@ -11,6 +11,14 @@
         let subPath = pathArray.slice(pathArray.length-1).join('/');
         const targetUrl = `./?page=${encodeURIComponent(subPath)}`;
         window.location.href = targetUrl;
+
+        if (pathArray.includes("AR")) {
+            const subPath = pathArray.slice(pathArray.indexOf("AR") + 1).join('/');
+            const targetUrl = `../AR/?page=${encodeURIComponent(subPath)}`;
+            window.location.href = targetUrl;
+        } else {
+            document.body.innerHTML = '<h1>404 Not Found</h1><p>The page you are looking for does not exist.</p>';
+        }
     </script>
 </body>
 </html>
