@@ -50,9 +50,7 @@ function drawCanvas(width, height) {
     canvas.width = width;
     canvas.height = height;
     if (width == 0 && height == 0) {
-        canvas.style.outline = "0px";
     } else {
-        canvas.style.outline = "#fca311 3px solid";
         context2D.drawImage(qrImage, 0, 0, width, height);
     }
     loaded = true;
@@ -70,7 +68,7 @@ function generate() {
             image: "1.png",
             imageOptions: {
                 imageSize: 0.5,
-                margin: 8
+                margin: 10
             }
         });
         qr.getRawData("png").then(buffer => {
@@ -96,15 +94,15 @@ function generate() {
                 qrImage0.src = URL.createObjectURL(buffer);
                 qrImage0.onload = function () {
                     canvas0.width = imageSize;
-                    canvas0.height = imageSize * 2;
+                    canvas0.height = imageSize * 2 + 10;
                     context0.fillStyle = "#ffffff";
-                    context0.fillRect(0, 0, imageSize, imageSize * 2);
+                    context0.fillRect(0, 0, imageSize, imageSize * 2 + 10);
                     context0.drawImage(qrImage0, 0, 0);
-                    context0.drawImage(image, 0, imageSize);
+                    context0.drawImage(image, 0, imageSize + 10);
                     qrImage.src = canvas0.toDataURL();
                     qrImage.onload = function () {
                         canvas0.remove();
-                        drawCanvas(size/2, size);
+                        drawCanvas(size/2 - 10, size);
                     };
                 };
             }); 
