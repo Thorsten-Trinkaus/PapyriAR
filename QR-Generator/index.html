@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>QR Code Generator</h1>
+    <input id="urlInput" type="text" id="urlInput" placeholder="Enter the link here">
+    <div>
+        <canvas id="qrImage"></canvas>
+    </div>
+    <div>
+        <button id="downloadBtn">Download</button>
+    </div>
+    <div id="version">
+        <h1>Version</h1>
+        <input type="checkbox" id="logoCheck" checked="true">
+        <button id="logoBtn" class="checkbox">QR Code with Logo</button>
+        <br />
+        <input type="checkbox" id="imageCheck">
+        <button id="imageBtn" class="checkbox">QR Code and Image</button>
+        <br />
+        <input type="checkbox" id="markerCheck">
+        <button id="markerBtn" class="checkbox">QR Code as Marker</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/qr-code-styling/lib/qr-code-styling.js"></script>
+    <script src='./threex-arpatternfile.js'></script>
+    <script src="generator.js"></script>
+</body>
+</html>

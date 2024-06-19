@@ -1,18 +1,72 @@
-const box = document.querySelector("#box");
-const text = document.createElement("a-text");
-text.setAttribute('rotation', {x: -90,y: 0,z: 1});
-text.setAttribute('position', {x: 0, y: 0, z: 1});
-text.setAttribute('color', "blue");
-text.setAttribute('width', "5");
 function getQueryParameter(name) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(name);
 }
-const page = getQueryParameter('page');
-if (page) {
-    text.setAttribute('value', `${page}`);
-} else {
-    text.setAttribute('value', "nothing here");
+
+function init() {
+    const page = getQueryParameter("page");
+    if (page) {
+        let identifier = `${page}`;
+        fetchMeta(identifier)
+            .then(metaXml => {
+                const meta = extractMetadataArr(metaXml);
+                const ddbIdentifier = extractDdb(metaXml);
+                fetchDdb(ddbIdentifier)
+                    .then(ddbXml => {
+                        const ddb = extractTranscription(ddbXml);
+                        buildSceneAsync(meta, ddb);
+                    })
+                    .catch(() => {
+                        errorState("Error getting ddb data. "
+                            + "Make sure the identifier "
+                            + ddbIdentifier
+                            + " is correct!"
+                        );
+                    });
+            })
+            .catch(() => {
+                errorState("Error getting meta data. "
+                    + "Make sure the identifier "
+                    + identifier
+                    + " is correct!"
+                );
+            });
+    } else {
+        errorState("NO IDENTIFIER FOUND!");
+    }
 }
-box.appendChild(text);
-console.log(box,text);
+
+function errorState(errorText) {
+    console.error(errorText);
+    const body = document.querySelector("body");
+    const scene = document.querySelector("a-scene");
+    body.removeChild(scene);
+    const text = document.createElement("text");
+    const textVal = document.createTextNode(errorText);
+    text.appendChild(textVal);
+    body.appendChild(text);
+}
+
+async function buildSceneAsync(meta, ddb) {
+    buildSceneSync(meta, ddb);
+}
+
+function buildSceneSync(meta, ddb) {
+    meta.forEach(element => {
+        if (!Array.isArray(element[1])) {
+            addLines(element, ["red", "black"], [5, 5])
+        } else {
+            addLine(element[0], "red");
+            element[1].forEach(subElement => {
+                addLine(subElement, "black");
+            });
+        }
+    });
+    addLines(
+        ["", "", "", ddb], 
+        ["green", "green", "green", "green"], 
+        [5, 5, 5, 5]
+    );
+}
+
+
