@@ -58,8 +58,9 @@ function drawCanvas(width, height) {
 
 function generate() {
     loaded = false;
-    const url = urlInput.value;
-    if (url == "") {
+    const id = urlInput.value;
+    const url = "https://thorsten-trinkaus.github.io/PapyriAR/AR/" + id;
+    if (id == "") {
         drawCanvas(0, 0);
     } else if (logoCheck.checked) {
         qr = new QRCodeStyling({
