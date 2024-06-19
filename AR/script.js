@@ -54,19 +54,15 @@ async function buildSceneAsync(meta, ddb) {
 function buildSceneSync(meta, ddb) {
     meta.forEach(element => {
         if (!Array.isArray(element[1])) {
-            addLines(element, ["red", "black"], [5, 5])
+            addLines(element, ["red", "blue"], [5, 5])
         } else {
             addLine(element[0], "red");
             element[1].forEach(subElement => {
-                addLine(subElement, "black");
+                addLine(subElement, "blue");
             });
         }
     });
-    addLines(
-        ["", "", "", ddb], 
-        ["green", "green", "green", "green"], 
-        [5, 5, 5, 5]
-    );
+    addLine(ddb, "green");
 }
 
 
