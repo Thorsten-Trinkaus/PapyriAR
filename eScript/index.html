@@ -9,11 +9,11 @@
 <body>
     <div class="container">
         <div class="input-container">
-            <label for="upload">Upload Image:</label>
-            <input type="file" id="upload" accept="image/*" onchange="loadImage(event)">
+            <label for="uploadImg" class="file_upload">Upload Image:</label>
+            <input type="file" id="uploadImg" accept="image/*" onchange="loadImage(event)">
             <br><br>
-            <label for="upload">Upload XML:</label>
-            <input type="file" id="upload" accept=".xml" onchange="loadXML(event)">
+            <label for="uploadXML" class="file_upload">Upload XML:</label>
+            <input type="file" id="uploadXML" accept=".xml" onchange="loadXML(event)">
             <br><br>
             <button onclick="draw()">Draw</button>
         </div>
