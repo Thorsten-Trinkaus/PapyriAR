@@ -13,6 +13,7 @@ function addLine(text, color, width = 5) {
     textEl.setAttribute("position", {x: 0.75, y: 0, z: 0.5 * lineCount - 0.5});
     textEl.setAttribute("color", color);
     textEl.setAttribute("value", text);
+    textEl.setAttribute("width", toString(width));
     textEl.setAttribute("font", "custom-msdf.json");
     textEl.setAttribute("negate", "false");
     textEl.setAttribute("scale", {x: 6,y: 6,z: 6});
