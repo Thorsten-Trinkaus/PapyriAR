@@ -15,6 +15,8 @@ function addLine(text, color, width = 5) {
     textEl.setAttribute("width", toString(width));
     textEl.setAttribute("value", text);
     textEl.setAttribute("font", "custom-msdf.json");
+    textEl.setAttribute("negate", "false");
+    negate="false"
     box.appendChild(textEl);
     lineCount++;
 }
