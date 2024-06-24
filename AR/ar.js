@@ -10,7 +10,7 @@ let lineCount = 0;
 function addLine(text, color, width = 5) {
     const textEl = document.createElement("a-text");
     textEl.setAttribute("rotation", {x: -90,y: 0,z: 0});
-    textEl.setAttribute("position", {x: 0.75, y: 0, z: 0.1 * lineCount - 0.5});
+    textEl.setAttribute("position", {x: 0.75, y: 0, z: 0.5 * lineCount - 0.5});
     textEl.setAttribute("color", color);
     textEl.setAttribute("width", toString(width));
     textEl.setAttribute("value", text);
