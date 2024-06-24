@@ -62,7 +62,16 @@ function buildSceneSync(meta, ddb) {
             });
         }
     });
-    addLine(ddb, "green", 100);
+    let ddb_split = ddb.split("\n");
+    ddb_split = ddb_split.filter(st5r => st5r !== "");
+    for (let i = 0; i < ddb_split.length; i++) {
+        ddb_split[i] = ddb_split[i].trim();
+    }
+    addLines(
+        ddb_split, 
+        Array(ddb_split.length).fill("green"), 
+        Array(ddb_split.length).fill(100)
+    );
 }
 
 
