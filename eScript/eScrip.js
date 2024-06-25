@@ -1,5 +1,6 @@
 let aspectW = 1;
 let aspectH = 1;
+let imageSrc = null;
 function loadImage(event) {
     const maxWidth = window.innerWidth/2;
     const maxHeight = window.innerHeight-100;
@@ -9,6 +10,7 @@ function loadImage(event) {
     const reader = new FileReader();
     reader.onload = function() {
         image.src = reader.result;
+        imageSrc = reader.result;
         image.onload = function() {
             let width = image.width;
             let height = image.height;
@@ -29,6 +31,22 @@ function loadImage(event) {
         }
     }
     reader.readAsDataURL(event.target.files[0]);
+}
+
+function reset() {
+    if (!imageSrc) {
+        return;
+    }
+    const image = new Image();
+    image.src = imageSrc;
+    image.onload = function() {
+        let width = aspectW * image.width;
+        let height = aspectH * image.height;
+        const canvas = document.getElementById("imageCanvas");
+        const ctx = canvas.getContext("2d");
+        ctx.drawImage(image, 0, 0, width, height);
+        convertToBlackAndWhite(canvas);
+    }
 }
 
 function convertToBlackAndWhite(canvas) {
@@ -88,7 +106,7 @@ function stringToNumberArray(str) {
     return numArray;
 }
 
-function draw() {
+function drawPoly() {
     const canvas = document.getElementById("imageCanvas");
     const ctx = canvas.getContext("2d");
     if (poly.length == 0) {
@@ -101,12 +119,36 @@ function draw() {
     poly.forEach(arr => {
         drawLines(arr, ctx, "red");
     });
+}
+
+function drawBox() {
+    const canvas = document.getElementById("imageCanvas");
+    const ctx = canvas.getContext("2d");
+    if (poly.length == 0) {
+        window.alert("Please upload a XML-file");
+        return;
+    } else if (canvas.width == 0) {
+        window.alert("Please upload a image");
+        return;
+    }
     strs.forEach(arr => {
         drawLines(arr, ctx, "blue");
     });
+}
+
+function drawBaseline() {
+    const canvas = document.getElementById("imageCanvas");
+    const ctx = canvas.getContext("2d");
+    if (poly.length == 0) {
+        window.alert("Please upload a XML-file");
+        return;
+    } else if (canvas.width == 0) {
+        window.alert("Please upload a image");
+        return;
+    }
     txtl.forEach(arr => {
         drawLines(arr, ctx, "green");
-    })
+    });
 }
 
 function drawLines(arr, ctx, color) {

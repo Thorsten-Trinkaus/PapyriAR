@@ -15,7 +15,13 @@
             <label for="uploadXML" class="file_upload">Upload XML:</label>
             <input type="file" id="uploadXML" accept=".xml" onchange="loadXML(event)">
             <br><br>
-            <button onclick="draw()">Draw</button>
+            <button onclick="drawPoly()">Draw Poly</button>
+            <br><br>  
+            <button onclick="drawBox()">Draw Box</button>
+            <br><br> 
+            <button onclick="drawBaseline()">Draw Baseline</button>
+            <br><br>
+            <button onclick="reset()">Reset</button>
         </div>
         <div class="image-container">
             <canvas id="imageCanvas" width="0" height="0"></canvas>
