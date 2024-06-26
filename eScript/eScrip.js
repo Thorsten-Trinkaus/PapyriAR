@@ -89,12 +89,20 @@ function loadXML(event) {
             if (h == 0) {
                 strs.push([hPos, vPos, hPos + w, vPos]);
             } else {
-                strs.push([hPos, vPos, hPos + w, vPos, hPos + w, vPos + h, hPos, vPos + h, hPos, vPos]);
+                strs.push([
+                    hPos, vPos, 
+                    hPos + w, vPos, 
+                    hPos + w, vPos + h, 
+                    hPos, vPos + h, 
+                    hPos, vPos
+                ]);
             }
         }
         const textLines = xml.getElementsByTagName("TextLine");
         for (let i = 0; i < textLines.length; i++) {
-            txtl.push(stringToNumberArray(textLines[i].getAttribute("BASELINE")));
+            txtl.push(
+                stringToNumberArray(textLines[i].getAttribute("BASELINE"))
+            );
         };
     }
     reader.readAsText(event.target.files[0]);
@@ -110,7 +118,7 @@ function drawPoly() {
     const canvas = document.getElementById("imageCanvas");
     const ctx = canvas.getContext("2d");
     if (poly.length == 0) {
-        window.alert("Please upload a XML-file");
+        window.alert("No poly in the xml");
         return;
     } else if (canvas.width == 0) {
         window.alert("Please upload a image");
@@ -118,14 +126,21 @@ function drawPoly() {
     }
     poly.forEach(arr => {
         drawLines(arr, ctx, "red");
+        lastLine = [
+            arr[arr.length - 2],
+            arr[arr.length - 1],
+            arr[0],
+            arr[1]
+        ];
+        drawLines(lastLine, ctx, "red");
     });
 }
 
 function drawBox() {
     const canvas = document.getElementById("imageCanvas");
     const ctx = canvas.getContext("2d");
-    if (poly.length == 0) {
-        window.alert("Please upload a XML-file");
+    if (strs.length == 0) {
+        window.alert("No box in the xml");
         return;
     } else if (canvas.width == 0) {
         window.alert("Please upload a image");
@@ -139,8 +154,8 @@ function drawBox() {
 function drawBaseline() {
     const canvas = document.getElementById("imageCanvas");
     const ctx = canvas.getContext("2d");
-    if (poly.length == 0) {
-        window.alert("Please upload a XML-file");
+    if (txtl.length == 0) {
+        window.alert("No baseline in the xml");
         return;
     } else if (canvas.width == 0) {
         window.alert("Please upload a image");
