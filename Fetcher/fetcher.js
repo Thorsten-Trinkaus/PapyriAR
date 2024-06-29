@@ -21,6 +21,7 @@ async function fetchUrl(url) {
             + " could not be fetched. " 
             + error
         );
+        throw new Error(error);
     }
 }
 
@@ -37,7 +38,11 @@ async function fetchMeta(identifier) {
             + identifier 
             + " is not a trismegistos identifier"
         );
-        return null;
+        throw new Error(
+            "The given identifier " 
+            + identifier 
+            + " is not a trismegistos identifier"
+        );
     }
     const id = Number(identifier);
     let subfolder = Math.floor(id / 1000);
@@ -65,7 +70,14 @@ async function fetchMeta(identifier) {
             + url 
             + " with identifier "
             + identifier
-            + " could not be fetched."
+            + " could not be fetched. "
+            + error
+        );
+        throw new Error(
+            "meta XML with identifier "
+            + identifier
+            + " could not be fetched. "
+            + error
         );
     }
 }
@@ -101,7 +113,14 @@ async function fetchDdb(ddbHybrid) {
             + url 
             + " with identifier "
             + ddbHybrid
-            + " could not be fetched."
+            + " could not be fetched. "
+            + error
+        );
+        throw new Error(
+            "ddb XML with identifier "
+            + ddbHybrid
+            + " could not be fetched. "
+            + error
         );
     }
 }
