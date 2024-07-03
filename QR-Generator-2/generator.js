@@ -21,7 +21,9 @@ const genBtn = document.getElementById("genBtn");
 const genLis = generateWithEScript.bind(this);
 genBtn.addEventListener("click", genLis)
 const tokenIn = document.getElementById("tokenInput");
-
+tokenIn.addEventListener("input", function () {
+    eScriptPage(1);
+});
 let loaded = false;
 let generated = true;
 const downloadIm = new Image();
