@@ -4,9 +4,19 @@ function getQueryParameter(name) {
 }
 
 function init() {
-    const page = getQueryParameter("page");
+    // const page = getQueryParameter("page");
+    const page = "1023_" 
+        + "1248_"
+        + "781-782.5-802-0_"
+        + "784-774-913-0_"
+        + "820-770-1041.5-359_"
+        + "766-772-1153.5-1_"
+        + "802-786-1298-2_"
+        + "881-764.5-1419.5-1";
     if (page) {
-        let identifier = `${page}`;
+        // let parts = `${page}`.split("_");
+        parts = page.split("_");
+        const identifier = parts[0];
         fetchMeta(identifier)
             .then(metaXml => {
                 const meta = extractMetadataArr(metaXml);
@@ -14,7 +24,12 @@ function init() {
                 fetchDdb(ddbIdentifier)
                     .then(ddbXml => {
                         const ddb = extractTranscription(ddbXml);
-                        buildSceneAsync(meta, ddb);
+                        if (parts.length == 1) {
+                            buildMeta(meta);
+
+                        } else {
+                            buildScene(meta, ddb, parts);
+                        }
                     })
                     .catch(() => {
                         errorState("Error getting ddb data. "
@@ -39,39 +54,12 @@ function init() {
 function errorState(errorText) {
     console.error(errorText);
     const body = document.querySelector("body");
-    const scene = document.querySelector("a-scene");
-    body.removeChild(scene);
     const text = document.createElement("text");
     const textVal = document.createTextNode(errorText);
     text.appendChild(textVal);
     body.appendChild(text);
 }
 
-async function buildSceneAsync(meta, ddb) {
-    buildSceneSync(meta, ddb);
-}
 
-function buildSceneSync(meta, ddb) {
-    meta.forEach(element => {
-        if (!Array.isArray(element[1])) {
-            addLines(element, ["red", "blue"], [100, 100])
-        } else {
-            addLine(element[0], "red", 100);
-            element[1].forEach(subElement => {
-                addLine(subElement, "blue");
-            });
-        }
-    });
-    let ddb_split = ddb.split("\n");
-    ddb_split = ddb_split.filter(st5r => st5r !== "");
-    for (let i = 0; i < ddb_split.length; i++) {
-        ddb_split[i] = ddb_split[i].trim();
-    }
-    addLines(
-        ddb_split, 
-        Array(ddb_split.length).fill("green"), 
-        Array(ddb_split.length).fill(100)
-    );
-}
 
 

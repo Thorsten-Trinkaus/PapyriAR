@@ -56,7 +56,6 @@ async function fetchMeta(identifier) {
         + "/" 
         + id 
         + ".xml";
-    
     try {
         const response = await fetchUrl(url);
         if (!response.ok) {

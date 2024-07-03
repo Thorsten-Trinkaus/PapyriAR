@@ -158,9 +158,9 @@ async function eScriptPage(page) {
             + "/api/documents/79/parts/?page=" 
             + page;
         const headers = {
-            'Content-type':'application/json', 
-            'Accept':'application/json', 
-            'Authorization':'Token ' + tokenIn.value
+            "Content-type":"application/json", 
+            "Accept":"application/json",
+            "Authorization":"Token " + trisIn.value
         };
         const response = await fetch(url, {
             headers: headers,
@@ -175,5 +175,3 @@ async function eScriptPage(page) {
         throw new Error(error);
     }
 }
-
-eScriptPage(1);

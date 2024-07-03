@@ -2,31 +2,13 @@
 <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1.3.0/dist/aframe-master.min.js"></script>
 <script src="./aframe-ar.js"></script>
 <html lang="en">
-<body onload="init()" style='margin : 0px; overflow: hidden; font-family: Monospace;'><div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 1;'>
-</div>
-    <a-scene embedded arjs='sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 3x3;' renderer='precision: high;'>
-
-		<a-marker preset='custom' type='pattern' url='https://raw.githack.com/Thorsten-Trinkaus/Test/1cb13e85daf60c45f00f3747781d1db62eb0ebf2/qr-code-as-marker%20(2).patt'>
-			<a-box position='0 0.5 0' material='opacity: 0.5; side: double;color:red;'>
-				<a-torus-knot radius='0.26' radius-tubular='0.05'
-				animation="property: rotation; to:360 0 0; dur: 5000; easing: linear; loop: true">
-				</a-torus-knot>
-				<a-text rotation="-90 0 0" color="red" position="-1 0 1" width="5" value="This is qr as marker!"></a-text>
-			</a-box>
-		</a-marker>
-		
-		<a-marker id="markerbox" type='barcode' value='1'>
-			<a-box id="box" position='0 0.5 0' material='opacity: 0.5; side: double;color:green;'>
-				<a-torus-knot radius='0.26' radius-tubular='0.05'
-				animation="property: rotation; to:360 0 0; dur: 5000; easing: linear; loop: true">
-				</a-torus-knot>
-			</a-box>
-		</a-marker>
-
-		<a-entity camera></a-entity>
-	</a-scene>
-    <script src="script.js"></script>
+<body id="body" onload="init()" style='margin : 0px; overflow: hidden; font-family: Monospace;'>
+	<div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 1;'>
+	</div>
+    <script src="init.js"></script>
 	<script src="ar.js"></script>
+	<script src="scene.js"></script>
+	<script src="sceneObjects.js"></script>
 	<script src="../Parser/XMLFetchAndParse2.js"></script>
 	<script src="../Fetcher/fetcher.js"></script>
 </body>

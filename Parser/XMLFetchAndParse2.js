@@ -75,6 +75,7 @@ function extractMetadata(xml) {
     const subjects = [];
     for (let i = 0; i < subjectElems.length; i++) {
         subjects.push(getTextContent(subjectElems[i]));
+        
     }
 
     return { title, material, originalPlace, originalDate, subjects };
@@ -89,9 +90,10 @@ function extractMetadataArr(xml) {
     //const originalDate = `${getAttributeValue(origDateElem, 'notBefore')} - ${getAttributeValue(origDateElem, 'notAfter')}`;
     
     const subjectElems = xml.getElementsByTagName('term');
-    const subjects = [];
+    
+    let subjects = "";
     for (let i = 0; i < subjectElems.length; i++) {
-        subjects.push(getTextContent(subjectElems[i]));
+        subjects = subjects + subjectElems[i].innerHTML + " | ";
     }
 
     return [
