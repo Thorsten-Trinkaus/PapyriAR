@@ -162,7 +162,7 @@ async function eScriptPage(page) {
         const headers = {
             "Content-type":"application/json", 
             "Accept":"application/json",
-            "Authorization":"Token " + trisIn.value
+            "Authorization":"Token " + tokenIn.value
         };
         const response = await fetch(url, {
             headers: headers,
