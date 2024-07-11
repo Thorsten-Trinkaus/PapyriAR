@@ -121,12 +121,12 @@ function generateWithXML() {
             const lines = xml.getElementsByTagName("TextLine");
             let baseline;
             for (let i = 0; i < lines.length; i++) {
-                url = url + "_" + lines[i].getAttribute("WIDTH") + "|";
+                url = url + "_" + lines[i].getAttribute("WIDTH") + "!";
                 baseline = stringToNumberArray(
                     lines[i].getAttribute("BASELINE")
                 );
-                url = url + ((baseline[0] + baseline[2]) / 2) + "|" 
-                    + ((baseline[1] + baseline[3]) / 2) + "|";
+                url = url + ((baseline[0] + baseline[2]) / 2) + "!" 
+                    + ((baseline[1] + baseline[3]) / 2) + "!";
                 url = url + (
                     -(Math.atan((baseline[3] - baseline[1]) 
                     / 
