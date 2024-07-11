@@ -47,14 +47,14 @@ function buildScene(meta, ddb, parts) {
     
     for (let i = 0; i < ddbSplit.length && i + 3 < parts.length; i++) {
         ddbSplit[i] = ddbSplit[i].trim();
-        subparts = parts[i + 3].split("|");
+        subparts = parts[i + 3].split("!");
         if (ddbSplit[i].length > maxLen) {
             maxLen = ddbSplit[i].length;
             maxLenW = parseFloat(subparts[0]);
         }
     }
     for (let i = 0; i < ddbSplit.length && i + 3 < parts.length; i++) {
-        subparts = parts[i + 3].split("|");
+        subparts = parts[i + 3].split("!");
         marker.addTextBox(
             ddbSplit[i], 
             parseFloat(subparts[0]),
@@ -79,7 +79,7 @@ function rebuildScene(dist) {
         let heightDist = maxRatio * dist;
         let heightRatio = heightDist / maxHeight;
         for (let i = 0; i < ddbSplit.length && i + 3 < ddbParts.length; i++) {
-            subparts = ddbParts[i + 3].split("|");
+            subparts = ddbParts[i + 3].split("!");
             marker.addTextBox(
                 ddbSplit[i], 
                 parseFloat(subparts[0])* widthRatio,
