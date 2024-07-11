@@ -5,10 +5,8 @@ function getQueryParameter(name) {
 
 function init() {
     const page = getQueryParameter("page");
-    console.log(page);
     if (page) {
         let parts = `${page}`.split("_");
-        console.log(parts);
         const identifier = parts[0];
         fetchMeta(identifier)
             .then(metaXml => {
