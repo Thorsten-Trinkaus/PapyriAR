@@ -118,12 +118,20 @@ class AMarker extends Element {
             super("a-marker", [
                 ["type", "barcode"],
                 ["value", value],
+                ["smooth", "true"],
+                ["smoothCount"="10"],
+                ["smoothTolerance"=".01"],
+                ["smoothThreshold"="5"],
                 [mode, ""]
             ]);
         } else {
             super("a-marker", [
                 ["type", "barcode"],
-                ["value", value]
+                ["value", value],
+                ["smooth", "true"],
+                ["smoothCount"="10"],
+                ["smoothTolerance"=".01"],
+                ["smoothThreshold"="5"]
             ]);
         }
         
