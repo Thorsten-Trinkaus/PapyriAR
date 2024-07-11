@@ -1,38 +1,4 @@
-AFRAME.registerComponent("rounded", {
-    schema: {
-      borderRadius: { type: "number", default: 0.05 },
-      borderWidth: { type: "number", default: 0.05 },
-    },
-    init: function () {
-      const data = this.data;
-      const el = this.el;
 
-      const geometry = new THREE.Shape();
-
-      const width = el.getAttribute("geometry").width / 2;
-      const height = el.getAttribute("geometry").height / 2;
-
-      geometry.moveTo(-width + data.borderRadius, -height);
-      geometry.lineTo(width - data.borderRadius, -height);
-      geometry.quadraticCurveTo(width, -height, width, -height + data.borderRadius);
-      geometry.lineTo(width, height - data.borderRadius);
-      geometry.quadraticCurveTo(width, height, width - data.borderRadius, height);
-      geometry.lineTo(-width + data.borderRadius, height);
-      geometry.quadraticCurveTo(-width, height, -width, height - data.borderRadius);
-      geometry.lineTo(-width, -height + data.borderRadius);
-      geometry.quadraticCurveTo(-width, -height, -width + data.borderRadius, -height);
-
-      const shapeGeometry = new THREE.ShapeBufferGeometry(geometry);
-      const material = new THREE.MeshStandardMaterial({ 
-          color: el.getAttribute("material").color,
-          opacity: el.getAttribute("material").opacity,
-          transparent: true,
-      });
-
-      const mesh = new THREE.Mesh(shapeGeometry, material);
-      el.setObject3D("mesh", mesh);
-    },
-});
 
 class Element {
     constructor(type, attributes) {
@@ -57,35 +23,89 @@ class Element {
         } else {
             this.children.get(child.type).push(child);
         }
+        return child;
     }
-
-    // TODO: REMOVE 
 }
 
-// This should be a singleton
+// This is a singleton.
 class AScene extends Element {
-    constructor(htmlBody) {
+
+    static #instance = null;
+    static #isInternalConstructing = false;
+    static #marker = [null, null];
+
+    constructor() {
+        if (!AScene.#isInternalConstructing) {
+            throw new TypeError(
+                "AScene is not constructable. "
+                + "Use AScene.getInstance() instead."
+            );
+        }
         const attributes = [
+            ["id", "scene"],
             ["embedded", ""],
             [
                 "arjs",
-                "sourceType: webcam; " + 
-                "detectionMode: mono_and_matrix; " + 
-                "matrixCodeType: 3x3;"
-            ], 
-            ["renderer", "precision: high;"]
+                "sourceType: webcam; "
+                + "detectionMode: mono_and_matrix; "
+                + "matrixCodeType: 3x3; "
+                + "sourceWidth: 1280; "
+                + "sourceHeight: 960; "
+                + "displayWidth: 1280; "
+                + "displayHeight: 960"
+            ],
+            ["renderer", "precision: high;"],
+            ["vr-mode-ui", "enabled: false"]
         ];
         super("a-scene", attributes);
-        htmlBody.appendChild(this.element);
+        this.attributes = attributes;
+        this.parent = document.querySelector("body");
+        this.parent.appendChild(this.element);
         this.appendChild(new Element("a-entity", [["camera", ""]]));
-        this.marker = [];
+        AScene.#marker[0] = this.appendChild(
+            new AMarker("1", "black", "data")
+        );
+        AScene.#marker[1] = this.appendChild(
+            new AMarker("0", "white", "calibration")
+        );
+        AScene.#isInternalConstructing = false;
     }
 
-    addMarker(value) {
-        const marker = new AMarker(value);
-        this.appendChild(marker);
-        this.marker.push(marker);
-        return marker;
+    update(dist) {
+        AScene.#marker[0].children.forEach((value, key) => {
+            value.forEach(el => {
+                el.element.remove();
+            });
+        });
+        AScene.#marker[0].children = new Map();
+        AScene.#marker[0].appendChild(new Element("a-box", [
+            ["position", "0 0.5 0"],
+            ["material", "opacity: 0.3; side: double; color: black;"]
+        ]));
+        rebuildScene(dist);
+    }
+
+    static getInstance() {
+        if (!AScene.#instance) {
+            AScene.#isInternalConstructing = true;
+            AScene.#instance = new AScene();
+        }
+        return AScene.#instance;
+    }
+
+    static remove() {
+        if (AScene.#instance) {
+            AScene.#instance.element.remove();
+            AScene.#instance = null;
+            AScene.#marker = [null, null];
+        }
+    }
+
+    static getDataMarker() {
+        if (!AScene.#instance) {
+            AScene.getInstance();
+        }
+        return AScene.#marker[0];
     }
 }
 
@@ -93,53 +113,102 @@ class AScene extends Element {
  * This will be a <a-marker> element of type barcode.
  */
 class AMarker extends Element {
-    constructor(value) {
-        const attributes = [
-            ["type", "barcode"],
-            ["value", value],
-        ];
-        super("a-marker", attributes);
+    constructor(value, color, mode) {
+        if (mode) {
+            super("a-marker", [
+                ["type", "barcode"],
+                ["value", value],
+                [mode, ""]
+            ]);
+        } else {
+            super("a-marker", [
+                ["type", "barcode"],
+                ["value", value]
+            ]);
+        }
+        
+        this.appendChild(new Element("a-box", [
+            ["position", "0 0.5 0"],
+            ["material", "opacity: 0.3; side: double; color: " + color + ";"]
+        ]));
     }
 
-    /**
-     * 
-     * @param {*} value 
-     * @param {*} position 
-     * @param {*} rotation in dec
-     */
-    addTextLine(value, width, position, rotation) {
-        const text = new AText(value, width, position, {x: -90, y: 0, z: rotation});
-        this.appendChild(text);
-        return text;
+    addTextBox(value, width, wrapCount, position, rotation) {
+        const textBox = new TextBox(
+            value, 
+            width, 
+            wrapCount, 
+            "center", 
+            "white", 
+            "black", 
+            position, 
+            "-90 0 " + rotation
+        );
+        this.appendChild(textBox);
+        return textBox;
+    }
+}
+
+class TextBox extends Element {
+    constructor(
+        value, width, wrapCount, align, boxColor, textColor, 
+        position = "0 0 0", rotation = "0 0 0"
+    ) {
+        const attributes = [
+            ["geometry", "primitive: plane; width: 0; height: 0;"],
+            ["position", position],
+            ["rotation", rotation],
+            [
+                "material", 
+                "depthTest: false; color: " + boxColor + ";"
+                + "opacity: 0.6; transparent: true"
+            ],
+            [
+                "text",
+                "value: " + value + "; "
+                + "width: " + width + "; "
+                + "wrap-count: " + wrapCount + "; "
+                + "align: " + align + "; "
+                + "color: " + textColor + "; "
+                + "font: custom-msdf.json; "
+                + "font-image: custom.png; "
+                + "negate: false; "
+            ]
+        ];
+        super("a-entity", attributes);
     }
 }
 
 class AText extends Element {
-    constructor(value, width, position = {x: 0, y: 0, z: 0}, rotation = {x: 0, y: 0, z: 0}) {
+    constructor(
+        value, width, wrapCount, align, color, 
+        position = "0 0 0", rotation = "0 0 0"
+    ) {
         const attributes = [
             ["value", value],
             ["width", width],
-            ["wrap-count", value.length],
-            ["position", {x: position.x, y: position.y+ 0.2, z: position.z}],
+            ["wrap-count", wrapCount],
+            ["align", align],
+            ["color", color],
+            ["position", position],
             ["rotation", rotation],
-            ["align", "center"],
-            ["color", "black"],
             ["font", "custom-msdf.json"],
             ["font-image", "custom.png"],
             ["negate", "false"],
-            ["z-offset", 0.5]
+            ["z-offset", 0.1],
+            ["material", "depthTest: false;"]
         ];
         
         super ("a-text", attributes);
         const textBoxAttr = [
-            ["geometry", "primitive: plane; width: " + width + "; height: " + (width/value.length + 0.5) + ";"],
-            ["material", "color: #ffffff; opacity: 0.7; transparent: true"],
-            ["position", {x: 0, y: 0, z: 0}],
+            [
+                "geometry", 
+                "primitive: plane; width: " + width + ";"
+                + "height: " + (width/value.length + 0.5) + ";"
+            ],
+            ["material", "depthTest: false; color: #ffffff; opacity: 0.5;"],
             ["rounded", "borderRadius: 0.2; borderWidth: 0.05"],
-            ["rotation", {x:0, y:0, z:0}]
         ];
         this.appendChild(new Element("a-entity", textBoxAttr));
     }
-
-    // TODO: Stuff to update position, rotation and scale of text elements
 }

@@ -97,11 +97,11 @@ function extractMetadataArr(xml) {
     }
 
     return [
-        ["title", title], 
-        ["material", material], 
-        ["originalPlace", originalPlace], 
-        ["originalDate", origDateElem], 
-        ["subjects", subjects]
+        ["TITLE", title], 
+        ["MATERIAL", material], 
+        ["PLACE", originalPlace], 
+        ["DATE", origDateElem], 
+        ["SUBJECTS", subjects]
     ];
 }
 

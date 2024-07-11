@@ -1,48 +1,97 @@
-let scene;
-
 function basicScene() {
-    scene = new AScene(document.getElementById("body"));
-    const marker = scene.addMarker("1");
-    const box = new Element("a-box", [
-        ["position", "0 0.5 0"],
-        ["material", 'opacity: 0.5; side: double;color:black;']
-    ]);
-    marker.appendChild(box);
+    const marker = AScene.getDataMarker();
     return marker;
 }
 
+let metaData;
+let ddbSplit = null;
+let ddbParts = null;
+let maxHeight;
+let maxWidth;
+let maxLen = 0;
+let maxLenW = 0;
+
 function buildMeta(meta) {
+    metaData = meta;
     const marker = basicScene();
-    let count = 0;
+    let lineCount = 0;
+    let elements = [];
+    let maxLen = 0;
+    let text = "";
     meta.forEach(element => {
-        marker.addTextLine(
-            element[0] + ": " + element[1], 
-            5, 
-            {x: 3, y: 0, z: count}
-        );
-        count += 2/element.length - 0.1;
+        elements.push(element[0] + ": " + element[1]);
+        if(elements[elements.length - 1].length > maxLen) {
+            maxLen = elements[elements.length - 1].length;
+        }
+        text = text + elements[elements.length - 1] + "\n\n";
+        lineCount += 3;
     });
+    marker.addTextBox(
+        text, 
+        8, 
+        maxLen,
+        "4.5 0 0",
+        0,
+    );
     return marker;
 }
 
 function buildScene(meta, ddb, parts) {
     const marker = buildMeta(meta);
-    let ddb_split = ddb.split("\n");
+    ddbParts = parts;
+    ddbSplit = ddb.split("\n");
     let subparts;
-    let maxWidth = parseFloat(parts[1])/300;
-    ddb_split = ddb_split.filter(st5r => st5r !== "");
-    for (let i = 0; i < ddb_split.length && i + 2 < parts.length; i++) {
-        subparts = parts[i + 2].split("-");
-        ddb_split[i] = ddb_split[i].trim();
-        marker.addTextLine(
-            ddb_split[i], 
-            parseFloat(subparts[0])/300, 
-            {
-                x: parseFloat(subparts[1])/300 - 0.5 - maxWidth, 
-                y: 0, 
-                z: parseFloat(subparts[2])/300 - 0.5
-            }, 
-            parseFloat(subparts[3])
+    maxWidth = parseFloat(parts[1]);
+    maxHeight = parseFloat(parts[2]);
+    ddbSplit = ddbSplit.filter(str => str !== "");
+    
+    for (let i = 0; i < ddbSplit.length && i + 3 < parts.length; i++) {
+        ddbSplit[i] = ddbSplit[i].trim();
+        subparts = parts[i + 3].split("|");
+        if (ddbSplit[i].length > maxLen) {
+            maxLen = ddbSplit[i].length;
+            maxLenW = parseFloat(subparts[0]);
+        }
+    }
+    for (let i = 0; i < ddbSplit.length && i + 3 < parts.length; i++) {
+        subparts = parts[i + 3].split("|");
+        marker.addTextBox(
+            ddbSplit[i], 
+            parseFloat(subparts[0]),
+            Math.max(
+                parseFloat(subparts[0]) * (maxLen / maxLenW), 
+                ddbSplit[i].length
+            ),
+            (parseFloat(subparts[1]) - 0.5 - maxWidth) 
+            + " 0 " 
+            + (parseFloat(subparts[2]) - 0.5),
+            parseFloat(subparts[3]),
         );
+    }
+}
+
+function rebuildScene(dist) {
+    const marker = buildMeta(metaData);
+    if (ddbSplit && ddbParts) {
+        let subparts;
+        let maxRatio = maxHeight/maxWidth;
+        let widthRatio = dist/maxWidth;
+        let heightDist = maxRatio * dist;
+        let heightRatio = heightDist / maxHeight;
+        for (let i = 0; i < ddbSplit.length && i + 3 < ddbParts.length; i++) {
+            subparts = ddbParts[i + 3].split("|");
+            marker.addTextBox(
+                ddbSplit[i], 
+                parseFloat(subparts[0])* widthRatio,
+                Math.max(
+                    parseFloat(subparts[0]) * (maxLen / maxLenW), 
+                    ddbSplit[i].length
+                ),
+                (parseFloat(subparts[1]) * widthRatio - 0.5 - dist) 
+                + " 0 " 
+                + (parseFloat(subparts[2]) * heightRatio - 0.5),
+                parseFloat(subparts[3]),    // Angle stays.
+            );
+        }
     }
 }
