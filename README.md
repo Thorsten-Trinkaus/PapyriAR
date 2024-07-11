@@ -3,7 +3,7 @@
 
 ## Useful Links
 
-### [Generator for QR-Codes and Marker](https://thorsten-trinkaus.github.io/PapyriAR/QR-Generator)
+### [Generator for QR-Codes and Marker](https://thorsten-trinkaus.github.io/PapyriAR/QR-Generator-3)
 
 ### [eScriptorium visualisation](https://thorsten-trinkaus.github.io/PapyriAR/eScript)
 
