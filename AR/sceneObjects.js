@@ -119,9 +119,9 @@ class AMarker extends Element {
                 ["type", "barcode"],
                 ["value", value],
                 ["smooth", "true"],
-                ["smoothCount"="10"],
-                ["smoothTolerance"=".01"],
-                ["smoothThreshold"="5"],
+                ["smoothCount", "10"],
+                ["smoothTolerance", ".01"],
+                ["smoothThreshold", "5"],
                 [mode, ""]
             ]);
         } else {
@@ -129,9 +129,9 @@ class AMarker extends Element {
                 ["type", "barcode"],
                 ["value", value],
                 ["smooth", "true"],
-                ["smoothCount"="10"],
-                ["smoothTolerance"=".01"],
-                ["smoothThreshold"="5"]
+                ["smoothCount", "10"],
+                ["smoothTolerance", ".01"],
+                ["smoothThreshold", "5"]
             ]);
         }
         

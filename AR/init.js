@@ -46,7 +46,7 @@ function init() {
 
 function errorState(errorText) {
     console.error(errorText);
-    const body = document.getElementById("body");
+    const body = document.querySelector("body");
     const text = document.createElement("text");
     const textVal = document.createTextNode(errorText);
     text.appendChild(textVal);
