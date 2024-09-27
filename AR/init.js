@@ -55,8 +55,7 @@ function getQueryParameter(name) {
  */
 function init() {
     // Get the query parameter `page`.
-    //const pagePara = getQueryParameter("page");
-    const pagePara = "2033_795_1063_673!401.5!104!0.68_657!405.5!198!0.70_669!399.5!285.5!1.46_671!400.5!382!1.20_675!408.5!464!0.85_655!396.5!543.5!2.36_634!388!636!1.45_624!377!718.5!3.21_440!520!848!-2.60_383!521.5!919.5!3.73";
+    const pagePara = getQueryParameter("page");
     // If there is no query parameter call errorState.
     if (!pagePara) {
         errorState("NO IDENTIFIER FOUND!");
