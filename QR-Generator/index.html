@@ -1,33 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QR Code Generator</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <h1>QR Code Generator</h1>
-    <input id="urlInput" type="text" id="urlInput" placeholder="Enter the trismegistos identifier here">
-    <div>
-        <canvas id="qrImage"></canvas>
-    </div>
-    <div>
-        <button id="downloadBtn">Download</button>
-    </div>
-    <div id="version">
-        <h1>Version</h1>
-        <input type="checkbox" id="logoCheck" checked="true">
-        <button id="logoBtn" class="checkbox">QR Code with Logo</button>
-        <br />
-        <input type="checkbox" id="imageCheck">
-        <button id="imageBtn" class="checkbox">QR Code and Image</button>
-        <br />
-        <input type="checkbox" id="markerCheck">
-        <button id="markerBtn" class="checkbox">QR Code as Marker</button>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/qr-code-styling/lib/qr-code-styling.js"></script>
-    <script src='./threex-arpatternfile.js'></script>
-    <script src="generator.js"></script>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>QR-Code Generator</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div class="container">
+            <div id="infoContainer" class="subcontainer">
+                <div id="info">
+                    <h1>QR-Code Generator</h1>
+                    Use a Trismegistos identifier [ this will only use meta data ]
+                    <br>&nbsp;<br>
+                    <input id="tris" type="text" placeholder="Enter the Trismegistos identifier here">
+                    <br>&nbsp;<br>
+                    OR
+                    <br>&nbsp;<br>
+                    Upload a eScriptorium XML-file [ this will also use transcript data ]
+                    <br>&nbsp;<br>
+                    <input type="file" id="xml" accept=".xml">
+                    <button id="remove">X</button>
+                    <br>&nbsp;<br>&nbsp;<br>
+                    <div id="shortContainer">
+                        <button id="sB">
+                            Use a URL Shortener
+                        </button>
+                        <span class="warning">&#9888;
+                            <span class="warningtext">
+                                Keep in mind that the URL Shortener is not controlled by us.<br>
+                                -> Your links (and QR codes) could stop working. <br>
+                                -> The service we use might or might not track you when using their links.<br> 
+                                !!! Use this function only if the QR code is not readable anymore !!!<br>
+                                There is a API limit of 5 requests per minute and 50 per hour.<br>
+                            </span>
+                        </span>
+                    </div>
+                    <br>&nbsp;<br>
+                    <h2>Downloads</h2>
+                    <button id="dM">
+                        <span>Download Marker </span>
+                    </button>
+                    <br>&nbsp;<br>
+                    <button id="dQ">
+                        <span>Download QR-Code </span>
+                    </button>
+                    <br>&nbsp;<br>
+                    <button id="dB">
+                        <span>Download both as PDF </span>
+                    </button>
+                    <br>&nbsp;<br>
+                </div>
+            </div>
+            <div id="canvasContainer" class="subcontainer">
+                <canvas id="image"></canvas>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/qr-code-styling/lib/qr-code-styling.js"></script>
+        <script src="generator.js"></script>
+        <script src="../Fetcher/fetcher.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script> 
+    </body>
 </html>

@@ -1,82 +1,174 @@
-body {
-    background-color: #ffffff;
-    color: #000000;
-    align-content: center;
-    align-items: center;
+body, html {
     font: 1em sans-serif;
-    font-size: large;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    font-size: 1vw;
 }
 
-h1 {
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background-color: #ffffff;
+}
+
+.subcontainer {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#infoContainer {
+    background-color: #000000;
+    color: #ffffff;
+    overflow-y: auto;
+} 
+
+#info {
+    margin: auto;
+    width: 100%;
     text-align: center;
 }
 
-div {
-    width: max-content;
-    margin: auto;
-    margin-top: 20px;
+#image {
+    border: 2px solid #000000;
 }
 
 input[type="text"] {
+    border-radius: 2px;
     border: 0px;
     outline:0px;
-    margin-left: 10%;
-    border-bottom: 2px solid;
-    width: 80%;
-    color: #000000;
+    border-bottom: 2px solid #ffffff;
+    width: 60%;
+    padding: 10px;
+    color: inherit;
     text-align: center;
     font: inherit;
-    font-size: large;
-    background-color: inherit;
+    background-color: #1d1d1d;
 }
 
-input[type="checkbox"] {
-    appearance: none;
-    background-color: none;
-    width: 25px;
-    height: 25px;
-    margin-right: 10px;
-    border: 1px solid #fca311;
-    border-radius: 50%;
-    vertical-align: middle;
+input[type="text"]:hover {
+    width: 62%;
+    border-bottom: 2px solid #cfb5ff;
 }
-input[type="checkbox"]:checked {
-    background-color: #fca311;
+
+input[type=file] {
+    font: inherit;
+    font-size: 1vw;
+}
+
+input[type=file]::file-selector-button {
+    margin-right: 5%;
+    background-color: #ffffff;
+    color: #000000;
+    width: fit-content;
+    font: inherit;
+    font-size: 1vw;
+    padding: 10px;
+    border: 0px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type=file]::file-selector-button:hover {
+    background-color: #cfb5ff;
+}
+
+#remove {
+    width: fit-content;
+    display: none;
+    background-color: inherit;
+    color: red;
+    border-radius: 0;
+    box-shadow: 0 0px #6c6c6c;
+}
+
+#remove:hover {
+    color: darkred;
 }
 
 button {
-    background-color: #fca311;
-    color: #ffffff;
-    width: fit-content;
+    background-color: #ffffff;
+    color: #000000;
+    width: 60%;
     font: inherit;
-    font-size: large;
     padding: 10px;
     border: 0px;
-    border-radius: 100px;
+    border-radius: 5px;
     cursor: pointer;
-    box-shadow: 0 5px #e5e5e5;
 }
 
 button:hover {
-    background-color: #cb7d00;
+    background-color: #cfb5ff;
 }
 
 button:active {
-    box-shadow: 0 1px #e5e5e5;
-    transform: translateY(4px);
+    background-color: #b58dff;
 }
 
-.checkbox {
-    background-color: inherit;
-    color: #000000;
-    box-shadow: 0 0px;
+button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+  
+button span:after {
+    content: '\2193';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -10%;
+    transition: 0.5s;
+}
+  
+button:hover span {
+    padding-right: 5%;
+}
+  
+button:hover span:after {
+    opacity: 1;
+    right: 0;
 }
 
-.checkbox:hover {
-    background-color: inherit;
+.warning .warningtext {
+    visibility: hidden;
+    padding: 10px;
+    background-color: #000000;
+    color: #ffffff;
+    line-height: 150%;
+    border-radius: 5px;
+    white-space: nowrap;
+    text-align: left;
+    font-size: 1vw;
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: 100%;
+    transition-property: visibility;
+    transition-delay: 0s;
+}
+  
+.warning:hover .warningtext {
+    visibility: visible;
+    transition-delay: 0.3s;
 }
 
-.checkbox:active {
-    box-shadow: 0 0px;
-    transform: translateY(0px);
+.warning {
+    position: relative;
+    display: inline-block;
+    cursor: default;
+    color: red;
+    vertical-align: middle;
+    margin-left: 1%;
+    font-size: 2vw;
+}
+#shortContainer {
+    margin: auto;
+    width: 50%;
 }
