@@ -35,12 +35,12 @@ rm -rf "$output"
 mkdir -p "$output"
 
 # Clear the sidebar entry.
-sed -i '' "/type: 'category',label: 'jsDoc',items: \[/,/};/ {
+sed -i "/type: 'category',label: 'jsDoc',items: \[/,/};/ {
   /type: 'category',label: 'jsDoc',items: \[/b
   d
 }" "$sidebar"
 
-sed -i '' "/type: 'category',label: 'jsDoc',items: \[/a\\
+sed -i "/type: 'category',label: 'jsDoc',items: \[/a\\
     \],\},\],\};\\
     " "$sidebar"
 
@@ -73,7 +73,7 @@ do
         rm $md
     else
         # Add file to the sidebar entry.
-        sed -i '' "/type: 'category',label: 'jsDoc',items: \[/a\\
+        sed -i "/type: 'category',label: 'jsDoc',items: \[/a\\
         \"$(basename $output)/$(basename $md .md)\",\\
         " "$sidebar"
     fi
