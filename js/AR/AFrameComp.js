@@ -127,8 +127,6 @@ AFRAME.registerComponent("rounded",
                 // Make sure the radius is not bigger than the box height.
                 const trueRadius = radius > halfHeight? halfHeight : radius;
 
-                console.log(trueRadius);
-
                 // Check if everything worked.
                 if (width > 0 && height > 0) {
 
