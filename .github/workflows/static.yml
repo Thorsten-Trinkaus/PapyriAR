@@ -40,8 +40,6 @@ jobs:
       - name: Install dependencies
         run: npm install
         working-directory: ./doc
-      - name: Add node_modules/.bin to PATH
-        run: echo "::add-path::$(pwd)/doc/node_modules/.bin"
       - name: Run jsdoc2md.sh script
         run: ./jsdocAuto.sh ../js ./docs/jsDoc ./sidebars.js
         working-directory: ./doc
