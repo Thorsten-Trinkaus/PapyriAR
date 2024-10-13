@@ -76,6 +76,11 @@ const config = {
             label: 'Developer Guide',
           },
           {
+            href: 'https://thorsten-trinkaus.github.io/PapyriAR/QR-Generator/',
+            label: 'QR-Generator',
+            position: 'right',
+          },
+          {
             to: 'docs/contact/ContactUs',
             activeBasePath: 'docs/contact/',
             label: 'Contact Us',
@@ -117,8 +122,17 @@ const config = {
               },
             ],
           },
+          {
+            title: 'Tools',
+            items: [
+              {
+                label: 'QR-Generator',
+                href: 'https://thorsten-trinkaus.github.io/PapyriAR/QR-Generator/',
+              },
+            ],
+          },
         ],
-        copyright: `Built with Docusaurus.`,
+        copyright: `Copyright © 2024 Thorsten Trinkaus, ... . Built with Docusaurus.`,
       },
       prism: {
         theme: prismThemes.github,
