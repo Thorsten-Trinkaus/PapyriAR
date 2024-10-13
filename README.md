@@ -1,4 +1,7 @@
-# PapyriAR
+# Welcome to PapyriAR
+
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/Thorsten-Trinkaus/PapyriAR/static.yml?branch=main&style=flat-square
+)](https://github.com/Thorsten-Trinkaus/PapyriAR/actions/workflows/static.yml)
 
 ## What is PapyriAR?
 
