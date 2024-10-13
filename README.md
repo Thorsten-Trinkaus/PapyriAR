@@ -5,9 +5,9 @@
 )](https://github.com/Thorsten-Trinkaus/PapyriAR/actions/workflows/static.yml)
 [![Doc](https://img.shields.io/website?url=https%3A%2F%2Fthorsten-trinkaus.github.io%2FPapyriAR%2F&style=flat-square&label=doc
 )](https://thorsten-trinkaus.github.io/PapyriAR/)
-![Commits](https://img.shields.io/github/commit-activity/t/Thorsten-Trinkaus/PapyriAR?style=flat-square)
-![Last Commit](https://img.shields.io/github/last-commit/Thorsten-Trinkaus/PapyriAR?style=flat-square&color=violet
-)
+[![Commits](https://img.shields.io/github/commit-activity/t/Thorsten-Trinkaus/PapyriAR?style=flat-square)](https://github.com/Thorsten-Trinkaus/PapyriAR/commits)
+[![Last Commit](https://img.shields.io/github/last-commit/Thorsten-Trinkaus/PapyriAR?style=flat-square&color=violet
+)](https://github.com/Thorsten-Trinkaus/PapyriAR/commits)
 [![Dependencies](https://img.shields.io/badge/Dependencies-AR.js-red?style=flat-square
 )](https://ar-js-org.github.io/AR.js-Docs/)
 [![Dependencies](https://img.shields.io/badge/Dependencies-A--Frame-red?style=flat-square
