@@ -13,7 +13,7 @@ function HomepageHeader() {
         
         <Heading as="h1" className="hero__title">
           <div style={{ display: "flex", alignItems: "center" }}>
-            <img src="/img/logo.png" alt="Logo" style={{ marginRight: "5px" }} />
+            <img src="../../static/img/logo.png" alt="Logo" style={{ marginRight: "5px" }} />
             <span>Welcome to {siteConfig.title}!</span>
           </div>
         </Heading>
