@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>QR-Code Generator</title>
         <link rel="stylesheet" href="styles.css">
+        <link rel="icon" type="image/x-icon" href="../doc/static/img/favicon.ico">
     </head>
     <body>
         <div class="container">
@@ -22,20 +23,18 @@
                     <input type="file" id="xml" accept=".xml">
                     <button id="remove">X</button>
                     <br>&nbsp;<br>&nbsp;<br>
-                    <div id="shortContainer">
-                        <button id="sB">
-                            Use a URL Shortener
-                        </button>
-                        <span class="warning">&#9888;
-                            <span class="warningtext">
-                                Keep in mind that the URL Shortener is not controlled by us.<br>
-                                -> Your links (and QR codes) could stop working. <br>
-                                -> The service we use might or might not track you when using their links.<br> 
-                                !!! Use this function only if the QR code is not readable anymore !!!<br>
-                                There is a API limit of 5 requests per minute and 50 per hour.<br>
-                            </span>
+                    <button id="sB">
+                        Use a URL Shortener
+                    </button>
+                    <span class="warning">&#9888;
+                        <span class="warningtext">
+                            Keep in mind that the URL Shortener is not controlled by us.<br>
+                            -> Your links (and QR codes) could stop working. <br>
+                            -> The service we use might or might not track you when using their links.<br> 
+                            !!! Use this function only if the QR code is not readable anymore !!!<br>
+                            There is a API limit of 5 requests per minute and 50 per hour.<br>
                         </span>
-                    </div>
+                    </span>
                     <br>&nbsp;<br>
                     <h2>Downloads</h2>
                     <button id="dM">
@@ -57,8 +56,8 @@
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/qr-code-styling/lib/qr-code-styling.js"></script>
-        <script src="generator.js"></script>
-        <script src="../Fetcher/fetcher.js"></script>
+        <script src="../js/QR-Generator/generator.js"></script>
+        <script src="../js/Fetcher/fetcher.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script> 
     </body>
 </html>

@@ -14,6 +14,7 @@ body, html {
     height: 100%;
     display: flex;
     background-color: #ffffff;
+    position: absolute;
 }
 
 .subcontainer {
@@ -21,18 +22,19 @@ body, html {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
 
 #infoContainer {
     background-color: #000000;
     color: #ffffff;
-    overflow-y: auto;
 } 
 
 #info {
     margin: auto;
     width: 100%;
     text-align: center;
+    
 }
 
 #image {
@@ -139,7 +141,7 @@ button:hover span:after {
 .warning .warningtext {
     visibility: hidden;
     padding: 10px;
-    background-color: #000000;
+    background-color: #414141;
     color: #ffffff;
     line-height: 150%;
     border-radius: 5px;
@@ -147,7 +149,7 @@ button:hover span:after {
     text-align: left;
     font-size: 1vw;
     position: absolute;
-    z-index: 1;
+    z-index: 10;
     top: 100%;
     left: 100%;
     transition-property: visibility;
@@ -160,15 +162,10 @@ button:hover span:after {
 }
 
 .warning {
-    position: relative;
-    display: inline-block;
     cursor: default;
     color: red;
     vertical-align: middle;
     margin-left: 1%;
     font-size: 2vw;
-}
-#shortContainer {
-    margin: auto;
-    width: 50%;
+    position: absolute;
 }
