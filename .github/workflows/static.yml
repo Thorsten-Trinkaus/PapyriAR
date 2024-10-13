@@ -52,6 +52,8 @@ jobs:
         run: cp -r ./AR ./doc/build
       - name: Copy QR-Generator folder to build
         run: cp -r ./QR-Generator ./doc/build
+      - name: Copy js folder to build
+        run: cp -r ./js ./doc/build
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
