@@ -78,8 +78,8 @@ const config = {
             label: 'Developer Guide',
           },
           {
-            to: 'docs/contact',
-            activeBasePath: 'docs/contact',
+            to: 'docs/contact/ContactUs',
+            activeBasePath: 'docs/contact/',
             label: 'Contact Us',
             position: 'right',
           },
@@ -111,7 +111,7 @@ const config = {
             items: [
               {
                 label: 'Contact Us',
-                to: '/docs/Contact',
+                to: '/docs/contact/ContactUs',
               },
               {
                 label: 'GitHub',

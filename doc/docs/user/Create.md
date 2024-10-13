@@ -7,7 +7,7 @@ If you are just interested in using an already existing visualization go to ***[
 
 ## Where do I start?
 
-As stated in the ***[introduction](Components)***, the visualization for any papyrus consists of three parts. While the marker stay constant for all papyri, the QR-Code needs to be generated for each papyrus individually. We offer an easy to use ***[tool](https://thorsten-trinkaus.github.io/PapyriAR/QR-Generator)*** for creating the QR-Code.
+As stated in the ***[introduction](Introduction)***, the visualization for any papyrus consists of three parts. While the marker stay constant for all papyri, the QR-Code needs to be generated for each papyrus individually. We offer an easy to use ***[tool](https://thorsten-trinkaus.github.io/PapyriAR/QR-Generator)*** for creating the QR-Code.
 
 ![QR-Generator](../../static/img/qrgen1.png)
 

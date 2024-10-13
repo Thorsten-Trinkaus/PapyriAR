@@ -39,7 +39,7 @@ Now use your mobile device to scan the QR-Code you generated in the last chapter
 ### Horizontal alignment
 
 Use your mobile device to look at the visualization by holding the camera in front of the two marker and the papyrus. Now align the scale and horizontal position of the AR transcript by moving the marker horizontally. Move both of them until you are happy with the result. The transcript doesn't need to be vertically aligned yet.
-**Try to keep both marker on the same horizontal line.** If you run into any problems with the AR overlay at this point onward, please take a look at the ***[Troubleshooting](./Using.md#troubleshooting)*** section of the ***[Using PapyriAR](./Using.md)*** chapter.
+**Try to keep both marker on the same horizontal line.** If you run into any problems with the AR overlay at this point onward, please take a look at the ***[Troubleshooting](./Using.md#troubleshooting)*** section of the ***[Using PapyriAR](Using)*** chapter.
 
 ![horAlign](../../static/img/qrsetup6.gif)
 
@@ -61,4 +61,4 @@ You are almost done. All you have to do now, is to fixate both marker in their p
 
 **Congratulation!** You did it. You created a visualization for your papyrus. 
 
-You want to change what is displayed? Look into our ***[Developer Guide](API/AR)*** to change this project to better fit your own needs.
+You want to change what is displayed? Look into our ***[Developer Guide](../dev/Introduction.md)*** to change this project to better fit your own needs.

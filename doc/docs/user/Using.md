@@ -4,7 +4,7 @@ In this chapter we will teach you how to use an existing PapyriAR visualization.
 
 ---
 
-We tried to make using an already existing PapyriAR visualization as easy as possible. All you will need in the process is a mobile device with a camera and an internet connection *(e.g. your smartphone or tablet)*. There are only three big components to consider while using this project, as mentioned before in the ***[introduction](intro)*** to this guide.
+We tried to make using an already existing PapyriAR visualization as easy as possible. All you will need in the process is a mobile device with a camera and an internet connection *(e.g. your smartphone or tablet)*. There are only three big components to consider while using this project, as mentioned before in the ***[Introduction](Introduction)*** to this guide.
 
 QR-Code                   | Marker 1                 | Marker 2
 :------------------------:|:------------------------:|:------------------------:
@@ -68,4 +68,4 @@ The AR framework we use sometimes fails to correctly calculate the rotation of t
 
 ### Still got a question?
 
-Feel absolutely free to write as an ***[E-Mail](../contact.md)***. Together we might be able to solve the problem.
+Feel absolutely free to write as an ***[E-Mail](../contact/ContactUs.md)***. Together we might be able to solve the problem.
