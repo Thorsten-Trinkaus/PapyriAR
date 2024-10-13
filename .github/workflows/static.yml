@@ -37,6 +37,8 @@ jobs:
           node-version: '22.6.0'
       - name: Change to doc directory
         run: cd doc
+      - name: Run jsdoc2md.sh script
+        run: ./jsdoc2md.sh ../js/ ./docs/jsDoc/ ./sidebar.js
       - name: Install dependencies
         run: npm install
         working-directory: ./doc

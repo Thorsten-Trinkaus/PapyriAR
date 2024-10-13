@@ -4,6 +4,7 @@ import Layout from '@theme/Layout';
 import Intro from '../../docs/Introduction.md';
 import Heading from '@theme/Heading';
 import styles from './index.module.css';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
@@ -13,7 +14,7 @@ function HomepageHeader() {
         
         <Heading as="h1" className="hero__title">
           <div style={{ display: "flex", alignItems: "center" }}>
-            <img src="../../static/img/logo.png" alt="Logo" style={{ marginRight: "5px" }} />
+            <img src={useBaseUrl('/img/logo.png')} alt="Logo" style={{ marginRight: "5px" }} />
             <span>Welcome to {siteConfig.title}!</span>
           </div>
         </Heading>
