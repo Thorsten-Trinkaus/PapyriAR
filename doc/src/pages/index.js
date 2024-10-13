@@ -31,9 +31,10 @@ export default function Home() {
       title={`Hello to PapyriAR`}>
       <HomepageHeader />
       <main style={{
-        paddingLeft: "20%",
-        paddingRight: "20%",
-        paddingTop: "50px"
+        paddingLeft: "25%",
+        paddingRight: "25%",
+        paddingTop: "60px",
+        paddingBottom: "60px"
       }}>
        <Intro />
       </main>
