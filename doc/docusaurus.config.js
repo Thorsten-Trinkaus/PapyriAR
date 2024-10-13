@@ -56,13 +56,11 @@ const config = {
       mermaid: {
         theme: {light: 'neutral', dark: 'dark'},
       },
-      // Replace with your project's social card
-      image: 'img/docusaurus-social-card.jpg',
       navbar: {
         title: 'PapyriAR',
         logo: {
           alt: 'Logo',
-          src: 'img/docusaurus.png',
+          src: 'img/logo.png',
         },
         items: [
           {
@@ -115,7 +113,7 @@ const config = {
               },
               {
                 label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                href: 'https://github.com/Thorsten-Trinkaus/PapyriAR',
               },
             ],
           },
