@@ -48,6 +48,10 @@ jobs:
       - name: Build Docusaurus site
         run: npm run build
         working-directory: ./doc
+      - name: Copy AR folder to build
+        run: cp -r ./AR ./doc/build
+      - name: Copy QR-Generator folder to build
+        run: cp -r ./QR-Generator ./doc/build
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
