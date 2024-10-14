@@ -13,9 +13,10 @@ function HomepageHeader() {
       <div className="container">
         
         <Heading as="h1" className="hero__title">
-          <div style={{ display: "flex", alignItems: "center" }}>
+          <div style={{ alignItems: "center" }}>
             <img src={useBaseUrl('/img/logo.png')} alt="Logo" style={{ marginRight: "5px" }} />
-            <span>Welcome to {siteConfig.title}!</span>
+            <br/>
+            Welcome to {siteConfig.title}!
           </div>
         </Heading>
         <p className="hero__subtitle">{siteConfig.tagline}</p>

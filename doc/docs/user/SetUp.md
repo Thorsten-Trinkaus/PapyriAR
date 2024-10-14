@@ -1,6 +1,6 @@
 # Setting up the new visualization
 
-So you just generated a QR-Code and downloaded both marker and the new QR-Code? This chapter should provide a explanation on how to set up the three components, such that the visualization can be used by any user.
+So you just generated a QR-Code and downloaded both markers and the new QR-Code? This chapter should provide a explanation on how to set up the three components, such that the visualization can be used by any user.
 
 ---
 
@@ -12,7 +12,7 @@ The first step in the setup process is to print all three components. **There ar
 
 ![maker-border](../../static/img/qrsetup1.png)
 
-- Both marker need to be printed at the same size. As long as both marker have the same size, the overall size of both marker can be adjusted to your liking. You can try different sizes until you find what works best for you. **Keep in mind that larger marker equal easier readability**.
+- Both markers need to be printed at the same size. As long as both markers have the same size, the overall size of both markers can be adjusted to your liking. You can try different sizes until you find what works best for you. **Keep in mind that larger marker equals easier readability**.
 
 ***Do***                                              | ***Don't***
 :----------------------------------------------------:|:----------------------------------------------------:
@@ -24,7 +24,7 @@ The size of the QR-Code doesn't matter as the QR-Code just redirects to the visu
 
 ## Calibration
 
-This is the important part of the setup process. In this step we will position the marker, such that the transcription is displayed correctly on top of the papyrus you want to visualize. Place the marker with value *0* on the top left of your papyrus and place the marker with value *1* on the top right.
+This is the important part of the setup process. In this step we will position the markers, such that the transcription is displayed correctly on top of the papyrus you want to visualize. Place the marker with value *0* on the top left of your papyrus and place the marker with value *1* on the top right.
 **Make sure they are aligned horizontally!**
 
 ![Positioning1](../../static/img/qrsetup4.png)
@@ -38,8 +38,8 @@ Now use your mobile device to scan the QR-Code you generated in the last chapter
 
 ### Horizontal alignment
 
-Use your mobile device to look at the visualization by holding the camera in front of the two marker and the papyrus. Now align the scale and horizontal position of the AR transcript by moving the marker horizontally. Move both of them until you are happy with the result. The transcript doesn't need to be vertically aligned yet.
-**Try to keep both marker on the same horizontal line.** If you run into any problems with the AR overlay at this point onward, please take a look at the ***[Troubleshooting](./Using.md#troubleshooting)*** section of the ***[Using PapyriAR](Using)*** chapter.
+Use your mobile device to look at the visualization by holding the camera in front of the two markers and the papyrus. Now align the scale and horizontal position of the AR transcript by moving the markers horizontally. Move both of them until you are happy with the result. The transcript doesn't need to be vertically aligned yet.
+**Try to keep both markers on the same horizontal line.** If you run into any problems with the AR overlay at this point onward, please take a look at the ***[Troubleshooting](./Using.md#troubleshooting)*** section of the ***[Using PapyriAR](Using)*** chapter.
 
 ![horAlign](../../static/img/qrsetup6.gif)
 
@@ -47,7 +47,7 @@ Use your mobile device to look at the visualization by holding the camera in fro
 
 ### Vertical alignment
 
-Now we want to do the same, but for the vertical alignment. Since the scale of the displayed transcript is already aligned with the papyrus, you only need to move both marker up or down simultaneously.
+Now we want to do the same, but for the vertical alignment. Since the scale of the displayed transcript is already aligned with the papyrus, you only need to move both markers up or down simultaneously.
 
 ![horAlign](../../static/img/qrsetup7.gif)
 
@@ -57,7 +57,7 @@ Now we want to do the same, but for the vertical alignment. Since the scale of t
 
 ## Finishing touch
 
-You are almost done. All you have to do now, is to fixate both marker in their place. The last step is to place the QR-Code wherever you want.
+You are almost done. All you have to do now, is to fixate both markers in their place. The last step is to place the QR-Code wherever you want.
 
 **Congratulation!** You did it. You created a visualization for your papyrus. 
 

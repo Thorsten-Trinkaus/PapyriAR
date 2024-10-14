@@ -462,7 +462,7 @@ class AMarker extends Element {
      * the marker position.
      * @param {string} rotation - Rotation around the center of the new 
      * `TextBox` element in dec.
-     * @returns The added `TextBox` element.
+     * @returns {TextBox} The added `TextBox` element.
      * 
      * @example
      * const marker = new AMarker("1");

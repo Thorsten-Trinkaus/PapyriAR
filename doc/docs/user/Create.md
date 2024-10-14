@@ -7,7 +7,7 @@ If you are just interested in using an already existing visualization go to ***[
 
 ## Where do I start?
 
-As stated in the ***[introduction](Introduction)***, the visualization for any papyrus consists of three parts. While the marker stay constant for all papyri, the QR-Code needs to be generated for each papyrus individually. We offer an easy to use ***[tool](https://thorsten-trinkaus.github.io/PapyriAR/QR-Generator)*** for creating the QR-Code.
+As stated in the ***[introduction](Introduction)***, the visualization for any papyrus consists of three parts. While the markers stay constant for all papyri, the QR-Code needs to be generated for each papyrus individually. We offer an easy to use ***[tool](https://thorsten-trinkaus.github.io/PapyriAR/QR-Generator)*** for creating the QR-Code.
 
 ![QR-Generator](../../static/img/qrgen1.png)
 
@@ -39,14 +39,14 @@ If you still want to use the URL shortener, wait until you see the preview of yo
 
 ### Downloads
 
-You just generated a new QR-Code. The last step to take is to download **marker** and **QR-Code** **[<text class="redText">4</text>]**.
+You just generated a new QR-Code. The last step to take is to download **markers** and **QR-Code** **[<text class="redText">4</text>]**.
 
 - Both marker can be downloaded at once through
-the **"Download Marker"** button. This can be done any time and the marker will be downloaded as *.png* files.
+the **"Download Marker"** button. This can be done any time and the markers will be downloaded as *.png* files.
 
 - The QR-Code can be downloaded through the **"Download QR-Code"** button. This is possible as soon as you see the preview of your QR-Code. The QR-Code will also be downloaded as a *.png*.
 
-- You can also download both marker and the QR-Code together through the **"Download both as PDF"** button. This will download a *.pdf* file with all three images. This is also possible as soon as you see the preview.
+- You can also download both markers and the QR-Code together through the **"Download both as PDF"** button. This will download a *.pdf* file with all three images. This is also possible as soon as you see the preview.
 
 ---
 

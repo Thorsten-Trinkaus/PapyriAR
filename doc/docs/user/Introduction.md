@@ -42,7 +42,7 @@ Every visualization has a QR-Code, which needs to be created separately for ever
 
 ### Marker
 
-Visualizations also consist of two marker, that don't hold any information. As a result, these stay constant between different papyri. They are used by the AR framework to track the papyrus in 3D space. This is essential for displaying any data in the augmented reality. Beyond this the two marker serve different purposes respectively.
+Visualizations also consist of two markers, that don't hold any information. As a result, these stay constant between different papyri. They are used by the AR framework to track the papyrus in 3D space. This is essential for displaying any data in the augmented reality. Beyond this, the two markers serve different purposes respectively.
 
 #### Marker 1
 
@@ -52,6 +52,6 @@ The first marker is used as the anchor for the data in the scene. All elements w
 
 #### Marker 2
 
-The second marker only works in combination with the first marker. If both of them are visible to the camera, This marker will trigger the page to recompute the distance between the two marker. This distance is then used to realign the scalings of the data displayed, such that it fits the papyrus underneath it.
+The second marker only works in combination with the first marker. If both of them are visible to the camera, This marker will trigger the page to recompute the distance between the two markers. This distance is then used to realign the scalings of the data displayed, such that it fits the papyrus underneath it.
 
 ![marker2](/img/marker0.png)

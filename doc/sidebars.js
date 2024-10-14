@@ -27,6 +27,10 @@ const sidebars = {
       className: 'sidebar-title',
     },
     'dev/Introduction',
+    'dev/Generator',
+    'dev/Fetcher',
+    'dev/Parser',
+    'dev/AR',
     {
       type: 'category',label: 'jsDoc',items: [
         "jsDoc/AFrameComp",

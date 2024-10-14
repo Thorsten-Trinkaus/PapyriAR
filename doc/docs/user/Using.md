@@ -52,19 +52,19 @@ To avoid frustration while using our project, we want to address some issues you
 
 ### Why is the data so small? / Why does the transcript not overlay with the papyrus?
 
-This issue might occur if you only have **Marker 1** visible to the camera of your mobile device. Try to cover both marker at the same time. This will recompute the distance between the marker, which should trigger the visualization to realign itself with the papyrus. This should also fix sizing issues.
+This issue might occur if you only have **Marker 1** visible to the camera of your mobile device. Try to cover both markers at the same time. This will recompute the distance between the markers, which should trigger the visualization to realign itself with the papyrus. This should also fix sizing issues.
 
 ### Why is the visualization flickering / not showing at all?
 
-There are multiple factors which contribute to the consistency of the experience. Changing the background behind the papyrus might already solve your problem, as the AR framework used, sometimes struggles to recognize the marker if the background is too dark or if the lighting conditions are bad. Also make sure that both marker are clean and not obscured by anything.
+There are multiple factors which contribute to the consistency of the experience. Changing the background behind the papyrus might already solve your problem, as the AR framework used, sometimes struggles to recognize the markers if the background is too dark or if the lighting conditions are bad. Also make sure that both markers are clean and not obscured by anything.
 
 If these solutions don't work for you, please consider copying the URL over to a different browser and trying again. Sometimes the AR framework has some browser (version) specific problems we can't resolve.
 
-If you the visualization still doesn't work, try holding your mobile device closer to the papyrus (while still covering the marker). This might sound trivial, but the closer you get with your camera, the bigger the marker appear, which makes it easier for the framework to detect their position.
+If you the visualization still doesn't work, try holding your mobile device closer to the papyrus (while still covering the markers). This might sound trivial, but the closer you get with your camera, the bigger the markers appear, which makes it easier for the framework to detect their position.
 
 ### Why is the data displayed at a strange angle?
 
-The AR framework we use sometimes fails to correctly calculate the rotation of the marker. Try to reload **Marker 1** by moving the camera away from the papyrus, such that the marker isn't covered anymore and moving it back afterwards. If this doesn't work try to reload the web page.
+The AR framework we use sometimes fails to correctly calculate the rotation of the markers. Try to reload **Marker 1** by moving the camera away from the papyrus, such that the marker isn't covered anymore and moving it back afterwards. If this doesn't work try to reload the web page.
 
 ### Still got a question?
 

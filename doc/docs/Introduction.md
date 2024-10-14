@@ -1,6 +1,6 @@
 # What is PapyriAR?
 
-This project leverages the augmented reality framework ***[AR.js](https://ar-js-org.github.io/AR.js-Docs/)*** to create fun and easy to use AR experiences for papyri from the ***[Heidelberger Gesamtverzeichnis der Griechischen Papyrusurkunden Ägyptens (HGV)](https://aquila.zaw.uni-heidelberg.de/start)*** directly in the browser. We use transcription data saved in the ***[Duke Databank of Documentary Papyri (DDbDP)](https://papyri.info/docs/ddbdp)***  to display transcriptions on top of the original artifacts. This database allows to also display parts of the transcriptions that are lost to time and not visible on the papyri themselves anymore.
+This project leverages the augmented reality framework ***[AR.js](https://ar-js-org.github.io/AR.js-Docs/)*** to create fun and easy to use AR experiences for papyri from the ***[Heidelberger Gesamtverzeichnis der Griechischen Papyrusurkunden Ägyptens (HGV)](https://aquila.zaw.uni-heidelberg.de/start)*** directly in the browser. We use transcription data saved in the ***[Duke Databank of Documentary Papyri (DDbDP)](https://papyri.info/docs/ddbdp)*** to display transcriptions on top of the original artifacts. This database allows to also display parts of the transcriptions that are lost to time and not visible on the papyri themselves anymore.
 
 ---
 
