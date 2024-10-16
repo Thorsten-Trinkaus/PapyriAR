@@ -1,8 +1,8 @@
 The MIT License (MIT)
 
 Copyright (c) 2024 Thorsten Trinkaus <thorsten.trinkaus@stud.uni-heidelberg.de>
-Copyright (c) 2024 veerav chebrolu <veerav96@gmail.com>
-Copyright (c) 2024 Carla Gamil <Carla Gamil>
+Copyright (c) 2024 Veerav Chebrolu <veerav96@gmail.com>
+Copyright (c) 2024 Carla Gamil <carlafarid@yahoo.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
