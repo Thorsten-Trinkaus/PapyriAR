@@ -200,6 +200,16 @@ The `depthTest: false;` is needed to avoid z-fighting between the plane and the 
   <a-entity camera></a-entity>
 </a-scene>
 ```
+
+It's important to note that in 2D text is displayed through the browser's renderer and layout engine. In 3D, this gets a bit harder. AFrame by default uses SDF-based text to display their text components. This doesn't work for our project because they don't support non ASCII characters. To display the ancient transcriptions, we need a custom set of characters. We used the ***[MSDF font generator](https://msdf-bmfont.donmccurdy.com/)*** to create this custom set. The set consists of a **custom.png** and **custom-msdf.json**. These can be attached to the text component of the text-box entity:
+```HTML
+  <a-entity 
+    geometry 
+    text="value: Hello World!; color: black; font: custom-msdf.json; font-image: custom.png; negate: false;"
+  ></a-entity>
+```
+`negate: false;` is needed to correctly render the custom font, because by default it is displayed inverted. It might happen that some characters are still not supported by our font. In this case, you would need to create your own font at ***[MSDF font generator](https://msdf-bmfont.donmccurdy.com/)*** and replace ours with yours.
+
 ---
 
 In js, with the help of our classes, this would look like this:
