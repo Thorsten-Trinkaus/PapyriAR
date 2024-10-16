@@ -132,7 +132,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © 2024 Thorsten Trinkaus, ... . Built with Docusaurus.`,
+        copyright: `Copyright © 2024 Thorsten Trinkaus, Veerav Chebrolu, Carla Gamil. Built with Docusaurus.`,
       },
       prism: {
         theme: prismThemes.github,
